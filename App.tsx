@@ -5,7 +5,8 @@ import Hello from './src/components/Hello'
 const App = ():JSX.Element => {
   return (
     <View style={styles.container}>
-      <Hello bang={true}>hey</Hello>
+      <Hello bang>aaa</Hello>
+      <Hello style={{ fontSize : 16}}>hey</Hello>
       <Text>Hello World</Text>
       <StatusBar style="auto" />
     </View>
