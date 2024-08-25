@@ -1,8 +1,18 @@
 // 最初に表示される画面
-import { Redirect } from "expo-router"
+import { Redirect, router } from "expo-router"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../config"
+import { useEffect } from "react"
  
 const Index = (): JSX.Element => {
-    return <Redirect href='auth/sign_up' />
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(user !== null) {
+                router.replace('/memo/list')
+            }
+        })
+    }, [])
+    return <Redirect href='auth/log_in' />
 }
 
 export default Index
