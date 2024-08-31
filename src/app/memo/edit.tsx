@@ -1,15 +1,17 @@
 import { View, StyleSheet, TextInput, KeyboardAvoidingView } from "react-native"
 import CircleButton from "../../components/CircleButton"
 import Icon from "../../components/Icon"
-import { router } from "expo-router"
+import { router, useLocalSearchParams } from "expo-router"
 
 const handlePress = ():void => {
     router.back()
 }
 
 const Edit = (): JSX.Element => {
+    const id = String(useLocalSearchParams().id)
+    console.log('edit', id)
     return(
-        <KeyboardAvoidingView behavior="height" style={styles.container}>
+        <KeyboardAvoidingView behavior="height" style={styles.container}>   
             <View style={styles.inputContainer}>
                 <TextInput multiline style={styles.input} value={'買い物\nリスト'} />
             </View>
